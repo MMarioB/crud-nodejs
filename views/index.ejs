@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+    <!-- Boxicons -->
+    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+
+    <title>CRUD Base de Datos</title>
+  </head>
+  <body>
+    <div class="container">
+        <a href="/create" class="btn btn-outline-primary mt-4"><i class='bx bxs-plus-circle bx-md'></i></a>
+        <table class="table table-bordered table-striped text-center mt-4">
+            <thead>
+                <tr class="bg-primary text-white">
+                    <th scope="col">ID</th>
+                    <th scope="col">NOMBRE</th>
+                    <th scope="col">APELLIDOS</th>
+                    <th scope="col">TELEFONO</th>
+                    <th scope="col">EDAD</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% results.forEach((contacto)=> { %>
+                <tr>
+                    <td><%= contacto.id %></td>
+                    <td><%= contacto.nombre %></td>
+                    <td><%= contacto.apellidos %></td>
+                    <td><%= contacto.telefono %></td>
+                    <td><%= contacto.edad %></td>
+                    <td>
+                        <a href="/edit/<%= contacto.id %>" class="btn btn-outline-info">Editar</a>
+                        <a href="/delete/<%= contacto.id %>" class="btn btn-outline-danger">Eliminar</a>
+                    </td>
+                </tr>
+            <% }) %>
+            </tbody>
+        </table>
+    </div>
+  </body>
+</html>
